@@ -1272,6 +1272,7 @@ def fse_iologic(device, fse, ttyp):
 _clock_data = {
         'GW1N-1':  { 'tap_start': [[1, 0, 3, 2], [3, 2, 1, 0]], 'quads': {( 6, 0, 11, 2, 3)}},
         'GW1NZ-1': { 'tap_start': [[1, 0, 3, 2], [3, 2, 1, 0]], 'quads': {( 6, 0, 11, 2, 3)}},
+        'GW1N-2':  { 'tap_start': [[1, 0, 3, 2], [3, 2, 1, 0]], 'quads': {( 6, 0, 11, 2, 3)}},
         'GW1NS-2': { 'tap_start': [[1, 0, 3, 2], [3, 2, 1, 0]], 'quads': {( 6, 0, 15, 2, 3)}},
         'GW1N-4':  { 'tap_start': [[2, 1, 0, 3], [3, 2, 1, 0]], 'quads': {(10, 0, 20, 2, 3)}},
         'GW1NS-4': { 'tap_start': [[2, 1, 0, 3], [3, 2, 1, 0]], 'quads': {(10, 0, 20, 2, 3)}},
@@ -1638,7 +1639,7 @@ def add_attr_val(dev, logic_table, attrs, attr, val):
             break
 
 def get_pins(device):
-    if device not in {"GW1N-1", "GW1NZ-1", "GW1N-4", "GW1N-9", "GW1NR-9", "GW1N-9C", "GW1NR-9C", "GW1NS-2", "GW1NS-2C", "GW1NS-4", "GW1NSR-4C", "GW2A-18", "GW2A-18C", "GW2AR-18C"}:
+    if device not in {"GW1N-1", "GW1N-2", "GW1NZ-1", "GW1N-4", "GW1N-9", "GW1NR-9", "GW1N-9C", "GW1NR-9C", "GW1NS-2", "GW1NS-2C", "GW1NS-4", "GW1NSR-4C", "GW2A-18", "GW2A-18C", "GW2AR-18C"}:
         raise Exception(f"unsupported device {device}")
     pkgs = pindef.all_packages(device)
     res = {}
@@ -1657,6 +1658,11 @@ def json_pinout(device):
         pkgs, pins, bank_pins = get_pins("GW1N-1")
         return (pkgs, {
             "GW1N-1": pins
+        }, bank_pins)
+    if device == "GW1N-2":
+        pkgs, pins, bank_pins = get_pins("GW1N-2")
+        return (pkgs, {
+            "GW1N-2": pins
         }, bank_pins)
     elif device == "GW1NZ-1":
         pkgs, pins, bank_pins = get_pins("GW1NZ-1")

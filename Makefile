@@ -4,9 +4,10 @@ endif
 
 .SECONDARY:
 .PHONY: all clean
-all: apycula/GW1N-1.pickle apycula/GW1N-9.pickle apycula/GW1N-4.pickle \
-	 apycula/GW1NS-2.pickle apycula/GW1NS-4.pickle apycula/GW1N-9C.pickle \
-	 apycula/GW1NZ-1.pickle apycula/GW2A-18.pickle apycula/GW2A-18C.pickle
+all: apycula/GW1N-1.pickle apycula/GW1N-2.pickle apycula/GW1N-9.pickle \
+	 apycula/GW1N-4.pickle apycula/GW1NS-2.pickle apycula/GW1NS-4.pickle \
+	 apycula/GW1N-9C.pickle apycula/GW1NZ-1.pickle apycula/GW2A-18.pickle \
+	 apycula/GW2A-18C.pickle
 
 %.json: apycula/dat19_h4x.py
 	python3 -m apycula.dat19_h4x $*

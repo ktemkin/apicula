@@ -18,6 +18,7 @@ def get_package(device, package, special_pins):
         gowinhome = os.getenv("GOWINHOME")
         if not gowinhome:
             raise Exception("GOWINHOME not set")
+        print(_pindef_index)
         with open(_pindef_index[(device, package)]) as f:
             pins = json.load(f)
         _pindef_files[(device, package)] = [d for d in pins['PIN_DATA'] if d['TYPE'] == 'I/O']

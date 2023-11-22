@@ -58,6 +58,8 @@ def read_bitstream(fname):
                         padding = 0
                     elif ba == b'\x06\x00\x00\x00\x00\x00\x08\x1b':
                         padding = 0
+                    elif ba == b'\x06\x00\x00\x00\x01 h\x1b':
+                        padding = 0
                     else:
                         raise ValueError("Unsupported device", ba)
                 preamble = max(0, preamble-1)

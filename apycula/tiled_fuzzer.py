@@ -63,6 +63,11 @@ params = {
         "device": "GW1N-1",
         "partnumber": "GW1N-LV1LQ144C6/I5",
     },
+    "GW1N-2": {
+        "package": "LQFP144",
+        "device": "GW1N-2",
+        "partnumber": "GW1N-LV2LQ144C6/I5",
+    },
     "GW1NZ-1": {
         "package": "QFN48",
         "device": "GW1NZ-1",
@@ -278,7 +283,7 @@ if __name__ == "__main__":
     # GSR
     if device in {'GW2A-18', 'GW2A-18C'}:
         db.grid[27][50].bels.setdefault('GSR', chipdb.Bel()).portmap['GSRI'] = 'C4';
-    elif device in {'GW1N-1', 'GW1N-4', 'GW1NS-4', 'GW1N-9', 'GW1N-9C', 'GW1NS-2', 'GW1NZ-1'}:
+    elif device in {'GW1N-1', 'GW1N-2', 'GW1N-4', 'GW1NS-4', 'GW1N-9', 'GW1N-9C', 'GW1NS-2', 'GW1NZ-1'}:
         db.grid[0][0].bels.setdefault('GSR', chipdb.Bel()).portmap['GSRI'] = 'C4';
     else:
         raise Exception(f"No GSR for {device}")
